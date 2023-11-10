@@ -1,0 +1,32 @@
+.card {
+    display: grid;
+    grid-template-rows: 150px 40px 20px ;
+    align-items: center;
+    grid-template-columns: 150px;
+    background-color: #161616;
+    cursor: pointer;
+    padding: rem(10px);
+    border-radius: rem(10px);
+    width: fit-content;
+    .card-name{
+        
+        grid-row: 2/3;
+        font-size: rem(16px);
+        font-weight: 600;
+    }
+    .card-artist{
+        grid-row: 3/4;
+        color: #b5b5b5;
+        
+    }
+    img {
+        grid-row: 1/2;
+        height: 100%;
+        //idth: rem(150px);
+        //height: 100%;
+    }
+}
+.card:hover {
+    background-color: #353232;
+    transition: 2s;
+}

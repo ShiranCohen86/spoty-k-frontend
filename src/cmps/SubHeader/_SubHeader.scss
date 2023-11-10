@@ -1,0 +1,49 @@
+.sub-header {
+    grid-area: sub-header;
+    background-color: #323232;
+    border-radius: rem(10px) rem(10px) 0 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    //flex-direction: column;
+    align-items: center;
+    gap: rem(15px);
+    height: 100%;
+    padding: rem(15px);
+    img {
+        width: rem(30px);
+        height: rem(30px);
+    }
+    :hover {
+        color: gold;
+        transition: 3s;
+    }
+    .test {
+        //background-color: aliceblue;
+        //color: aliceblue;
+        //border-radius: 60%;
+        //color
+        //margin-left: auto;
+        margin-inline-start: auto;
+    }
+
+    @include for-narrow-layout {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        row-gap: 0;
+        column-gap: rem(15px);
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        right: 0;
+        height: auto;
+        ///margin-bottom: ;
+        > * {
+            :first-child {
+                display: none;
+            }
+        }
+    }
+}
