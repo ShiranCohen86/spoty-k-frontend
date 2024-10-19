@@ -5,22 +5,31 @@
     //align-items: end;
     row-gap: rem(15px);
     height: 100%;
-    padding: rem(15px);
+    padding: rem(8px) rem(12px);
     border-radius: rem(10px);
+
     img {
         width: rem(30px);
         height: rem(30px);
     }
-    :hover {
-        color: gold;
-        transition: 3s;
+   :hover {
+        color: rgba(255, 238, 0, 0.9);
+        transition: 1s;
+        img{
+
+            width: rem(35px);
+            height: rem(35px);
+        }
     }
 
     > * {
+        padding: rem(4px) rem(12px);
         display: flex;
-        align-items: center;
+        align-items: end;
+        height: rem(40px);
         //justify-content: end;
         gap: rem(15px);
+        cursor: pointer;
     }
 
     @include for-narrow-layout {

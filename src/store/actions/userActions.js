@@ -14,6 +14,7 @@ export const setLoggedUser = () => {
 export const setMyUser = () => {
   return async (dispatch) => {
     const myUser = await spotifyService.getMyDetails()
+    console.log(myUser);
     dispatch({ type: "MY_USER", myUser });
   };
 };

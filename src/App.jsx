@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { UserDetailsPage } from './pages/UserDetailsPage/UserDetailsPage';
 import { AlbumsPage } from './pages/AlbumsPage/AlbumsPage';
 import { SubHeader } from "./cmps/SubHeader/SubHeader";
+import { AlbumPage } from './pages/AlbumPage';
 
 function App() {
 	return (
@@ -16,7 +17,8 @@ function App() {
 				<div className="routes-main">
 					<Routes>
 						<Route element={<CallbackPage />} path="/callback" />
-						<Route element={<AlbumsPage />} path="/albums/:id" />
+						<Route element={<AlbumsPage />} path="/albums" />
+						<Route element={<AlbumPage />} path="/album/:id" />
 						<Route element={<UserDetailsPage />} path="/user" />
 						<Route element={<HomePage />} path="/" />
 					</Routes>

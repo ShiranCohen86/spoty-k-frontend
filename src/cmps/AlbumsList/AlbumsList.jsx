@@ -1,51 +1,38 @@
-import { useNavigate } from "react-router-dom";
-import { AlbumPreview } from "../AlbumPreview/AlbumPreview";
-
-
 import PropTypes from 'prop-types';
+import { CardList } from '../CardList/CardList';
 
-export const AlbumsList = ({ albums, title }) => {
-
-  const navigate = useNavigate()
-  const goAlbumDetails = (ev, albumId) => {
-    ev.stopPropagation()
-    navigate(`/albums/${albumId}`)
+export const AlbumsList = ({ albums }) => {
+  const title = "Saved Albums"
+  const albumsPageHref = "/album"
+  const getArtistsStr = (album) => {
+    let strArtists = ""
+    album.artists.forEach((artist) => {
+      strArtists = strArtists ? `${strArtists}, ${artist.name}` : artist.name
+    })
+    return strArtists
   }
 
+  const getCardImgUrl = (album) => album.images[0].url
 
-
-  const id = (album) => {
-    return <li key={album.album.id} onClick={(ev) => goAlbumDetails(ev, album.album.id)} >
-      <AlbumPreview album={album.album} />
-    </li>
+  const albumsList = albums.map(({ album }) => {
+    return {
+      imgUrl: getCardImgUrl(album),
+      firstP: album.name,
+      secondP: getArtistsStr(album),
+      navigateLink: `${albumsPageHref}/${album.id} `
+    }
   }
-
+  )
 
 
   return (
     <div className="albums-list">
-      <h2>Your Saved {title}</h2>
-      <a href="/user">Show all</a>
-      <ul>
-        {albums ? albums.map((album) => (
-          id(album)
-        )) : ""}
-      </ul>
+      <CardList items={albumsList} title={title} href={albumsPageHref} />
     </div >
   );
 };
-/*
-<li key={album.id} onClick={(ev) => goAlbumDetails(ev, album.id)} >
-            <AlbumPreview album={album} />
-          </li>
-*/
 
 AlbumsList.propTypes = {
   albums: PropTypes.array,
   title: PropTypes.string
 };
-/*
-{Object.keys(album).map(function (key) {
-        return <li key={key} value={key}>{`${key}: ${album[key]}`}</li>
-      })}
-*/

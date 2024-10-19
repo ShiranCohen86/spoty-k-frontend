@@ -19,11 +19,15 @@ export const CallbackPage = () => {
       const stateStr = params.get('state');
 
       const setSpotifyCode = async ({ code, stateStr }) => {
+        const queryObj = {
+          limit: 7,
+          //offset: 5
+        }
         await httpService.post("auth", { code, stateStr })
         sessionStorage.setItem("isLogged", true)
-        dispatch(getSavedAlbums())
-        dispatch(getSavedPlaylists())
-        dispatch(getSavedTracks())
+        dispatch(getSavedAlbums(queryObj))
+        dispatch(getSavedPlaylists(queryObj))
+        dispatch(getSavedTracks(queryObj))
         navigate("/")
       }
       setSpotifyCode({ code, stateStr })
@@ -32,7 +36,7 @@ export const CallbackPage = () => {
     }
 
 
-  }, [navigate, searchParams])
+  }, [dispatch, navigate, searchParams])
 
 
   return (

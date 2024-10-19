@@ -1,65 +1,50 @@
-.header-layout {
-  //padding: 0 15px;
-  //height: 50px;
-}
+
 .footer-layout {
   border-radius: 0;
 }
 .routes-main {
   grid-area: body;
-  overflow-y: unset;
-  //height: 100vh;
 }
-
 .main-layout {
   display: grid;
   height: 100%;
-  //width: 100vw;
-  //overflow: visible;
-  //padding: rem(8px) 0;
-  column-gap: rem(10px);
+  padding-block-start: rem(8px);
+  padding-inline: rem(8px);
+  column-gap: rem(8px);
   border-radius: rem(10px);
-  //overflow-wrap: anywhere;
   align-items: start;
   grid-template-columns: rem(200px) auto;
-  grid-template-rows: rem(50px) auto rem(72px);
+  grid-template-rows: rem(64px) auto rem(100px);
   justify-items: center;
-  //background: linear-gradient(#0f0909 0, #000000 50%, #0f0909 100%), #0f0909;
   grid-template-areas:
     "navbar sub-header"
     "navbar body"
     "footer footer";
-  
+  .routes-main {
+    grid-area: body;
+    overflow-y: auto;
+    p{
+      font-size: rem(14px);
+    }
+  }
+  .routes-main::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+  }
   .routes-main,
   .app-header {
-    //padding: rem(10px) rem(14px);
     background: linear-gradient(to bottom, #333333, #000000);
-
-    //border-radius: 0 rem(10px) rem(10px) 0 ;
     width: 100%;
     height: 100%;
   }
-  .app-header {
-    //background: linear-gradient($clr2 0, $clr1 50%, $clr2 100%), $clr2;
-  }
-
   @include for-mobile-layout {
     padding: rem(4px);
     gap: rem(5px);
-    //align-items: normal;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr rem(40px) rem(72px);
-
     grid-template-areas:
       "body"
       "footer"
       "navbar";
-    .routes-main {
-      //overflow-y: overlay;
-    }
-    .app-footer {
-      //background: linear-gradient($clr2 0, $clr1 50%, $clr2 100%), $clr2;
-    }
     .app-header {
       background: rgba(0, 0, 0, 0.8);
     }

@@ -6,13 +6,18 @@ import PropTypes from 'prop-types';
 export const TracksPreview = ({ track }) => {
   const goAlbumPage = (albumId) => {
     //ev.stopPropagation()
-    console.log("here", albumId);
+  }
+  const getArtistsStr = () => {
+    return track.artists.map((artist) => {
+      return artist.name
+    })
   }
 
   return (
     <div className='track-preview card' onClick={() => goAlbumPage(track.id)}>
       <img src={track.album.images[0].url} alt="" />
-      <p>{track.name}</p>
+      <p className='card-name'>{track.name}</p>
+      <p className='card-artist'>{getArtistsStr().toString()}</p>
     </div>
   );
 };

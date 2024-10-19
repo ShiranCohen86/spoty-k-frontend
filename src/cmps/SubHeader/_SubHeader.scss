@@ -9,14 +9,15 @@
     align-items: center;
     gap: rem(15px);
     height: 100%;
-    padding: rem(15px);
+    padding: rem(16px) rem(24px);
     img {
         width: rem(30px);
         height: rem(30px);
+        cursor: pointer;
     }
     :hover {
-        color: gold;
-        transition: 3s;
+        width: rem(35px);
+        height: rem(35px);
     }
     .test {
         //background-color: aliceblue;

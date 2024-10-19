@@ -1,0 +1,33 @@
+.card {
+    display: grid;
+    grid-template-rows: rem(140px) rem(25px) rem(40px);
+    grid-template-columns: rem(160px);
+    align-items: center;
+    background-color: #161616;
+    cursor: pointer;
+    padding: rem(10px);
+    border-radius: rem(12px);
+    align-items: center;
+    .card-first-p {
+        padding: rem(10px) 0;
+        grid-row: 2/3;
+        font-size: rem(16px);
+        font-weight: 600;
+    }
+    .card-second-p {
+        grid-row: 3/4;
+        color: #b5b5b5;
+        padding: rem(10px) 0;
+    }
+    .card-img {
+        grid-row: 1/2;
+    }
+}
+.card:hover {
+    background-color: #2b2929;
+    transition: 2s;
+}
+.card > * {
+    overflow: hidden;
+    height: 100%;
+}

@@ -5,17 +5,43 @@
     // margin-top: auto;
     //height: rem(70px);
     display: flex;
-    align-items: center;
+    display: flex;
     justify-content: center;
     text-align: center;
+    > * {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+    }
     //position: fixed;
     //width: 97.8%;
     //bottom: 0;
-    position: fixed;
-    bottom: 0;
+    //position: fixed;
+   //bottom: 0;
     width: 100%;
-    height: rem(72px);
-    background-color: rgb(0, 0, 0 );
+    height: rem(100px);
+    background-color: rgb(0, 0, 0);
+    padding: rem(4px) rem(8px);
+    .footer-btn{
+        
+        flex-direction: column;
+    }
+
+    img {
+        height: rem(40px);
+        width: rem(40px);
+        cursor: pointer;
+    }
+    img:hover {
+        width: rem(45px);
+        height: rem(45px);
+    }
+    > * {
+        height: 100%;
+        width: 33%;
+        //justify-content: end;
+    }
 
     @include for-narrow-layout {
         background-color: rgba(2, 204, 127, 0.8);

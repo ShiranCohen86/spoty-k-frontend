@@ -1,21 +1,32 @@
-import { TracksPreview } from "../TracksPreview/TracksPreview";
+import { CardList } from "../CardList";
 
 
 import PropTypes from 'prop-types';
 
 export const TracksList = ({ savedTracks }) => {
+  const title = "Tracks List"
+  const albumsPageHref = "/tracks"
+
+  const getArtistsStr = (artists) => {
+    let strArtists = ""
+    artists.forEach((artist) => {
+      strArtists = strArtists ? `${strArtists}, ${artist.name}` : artist.name
+    })
+    return strArtists
+  }
+  const getCardImgUrl = (track) => track.album.images[0].url
+  const tracks = savedTracks.map(({ track }) => {
+    return {
+      imgUrl: getCardImgUrl(track),
+      firstP: track.name,
+      secondP: getArtistsStr(track.artists),
+      navigateLink: `${albumsPageHref}/${track.id} `
+    }
+  })
 
   return (
     <div className="tracks-list">
-      <h2>Your Saved Tracks</h2>
-      <a>Show all</a>
-      <ul className="tracks-list card">
-        {savedTracks ? savedTracks.map(({ track }) => (
-          <li key={track.id}>
-            <TracksPreview track={track} />
-          </li>
-        )) : ""}
-      </ul>
+      <CardList items={tracks} title={title} href={albumsPageHref} />
     </div>
   );
 };

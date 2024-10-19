@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 export const AlbumPreview = ({ album }) => {
   const goAlbumPage = (albumId) => {
     //ev.stopPropagation()
-    console.log("here", albumId);
   }
   const getArtistsStr = () => {
     return album.artists.map((artist) => {
